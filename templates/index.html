@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flask Tutorial</title>
+<script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+<h1>Welcome to my site, {{ ad }}  {{ soyad }}</h1>
+<a href="/page_2"><input type="submit" value="Go to page 2"/></a>
+<div id='myDiv' /><!-- Plotly chart will be drawn inside this DIV -->
+<div id='myDiv2' /><!-- Plotly chart will be drawn inside this DIV -->
+<script>
+var data = [{
+    title: { text: "Speed", font:{size:20} },
+  values: [19, 26, 55],
+  labels: ['Residential', 'Non-Residential', 'Utility'],
+  type: 'pie'
+}];
+
+var layout = {
+  height: 400,
+  width: 500
+};
+
+Plotly.newPlot('myDiv', data, layout);
+
+var data = [
+  {
+    domain: { x: [0, 1], y: [0, 1] },
+    value: 450,
+    title: { text: "Speed" },
+    type: "indicator",
+    mode: "gauge+number",
+    delta: { reference: 400 },
+    gauge: { axis: { range: [null, 500] } }
+  }
+];
+
+var layout = { width: 600, height: 400 };
+Plotly.newPlot('myDiv2', data, layout);
+</script>
+</body>
+</html>
